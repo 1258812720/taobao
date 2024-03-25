@@ -1,0 +1,169 @@
+$color01: #eee;
+$bg01: #FFFFFF;
+
+@mixin border() {
+    border: 1px solid $color01
+}
+
+@mixin border0() {
+    border: 1px solid transparent;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    background-color: rgb(216, 216, 216);
+    font-size: 14px;
+    color: #3C3C3C;
+
+    .taobao-app {
+        position: relative;
+        width: 100%;
+
+        //  头部信息
+        .tb-header {
+            .tb-head-button {
+                border: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                font-size: 14px;
+                text-align: left;
+                @include border0();
+
+                &:hover {
+                    background-color: white;
+                    @include border();
+                }
+
+                &.active {
+                    background-color: rgb(255, 255, 255);
+                    @include border();
+                    border-bottom-color: transparent;
+                }
+
+                &::after {
+                    content: "∨";
+                    position: absolute;
+                    right: 4px;
+                }
+            }
+
+            width: 100%;
+            position: relative;
+            background-color: #f5f5f5;
+            height: 36px;
+
+            & .tb-hader-wrapper {
+                width: 1188px;
+                height: inherit;
+                position: inherit;
+                margin: 0 auto;
+                display: flex;
+                justify-content: start;
+
+                .h-menu {
+                    margin-right: 10px;
+                    width: 87px;
+                    height: 35px;
+                    background-color: transparent;
+
+                    .tb-head-ul {
+                        display: none;
+                    }
+                }
+
+                #menu-login {
+                    width: 112px;
+                }
+
+                #menu-world {
+                    .tb-head-ul {
+                        background-color: white;
+                        margin: 0;
+                        position: relative;
+                        padding: 8px 0 8px 0;
+                        box-sizing: border-box;
+
+                        li {
+                            box-sizing: border-box;
+                            padding-left: 8px;
+                            display: block;
+                            width: 100%;
+                            height: 29px;
+                            list-style: none;
+                            line-height: 28px;
+                            font-size: 14px;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #eee;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .tb-main-body {
+            max-width: 1200px;
+            margin: 120px auto;
+            padding-top: 48px;
+
+            #tb-slider {
+                width: 564px;
+                height: 315px;
+                position: relative;
+                border-radius: 12px;
+
+                #tb-slide-prev,
+                #tb-slide-next {
+                    background-color: rgba(0, 0, 0, .3);
+                    background-image: none;
+                    width: 20px;
+                    height: 30px;
+                    text-align: center;
+                    font-size: 13px;
+                }
+                #tb-slide-prev{
+                    border-radius:0 20px 20px 0;
+                }
+                #tb-slide-next{
+                    border-radius:20px 0 0 20px ;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .pagehelper {
+                    background-color: rgba(255, 255, 255, .3);
+                    bottom: 15px;
+                    left: 50%;
+                    box-sizing: border-box;
+                    width: 70px;
+                    height: 13px;
+                    border-radius: 13px;
+                    padding-top: 1.5px;
+                    margin-left: -35px;
+
+                    .pagination-items {
+                        top: 0;
+                        width: 8px;
+                        display: block;
+                        height: 8px;
+                        float: left;
+                        margin-left: 4%;
+                        margin-right: 4%;
+                    }
+                }
+            }
+        }
+
+        // 主题 轮播部分
+
+    }
+}
