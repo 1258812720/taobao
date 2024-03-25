@@ -3,12 +3,45 @@ branches: {
   }
 fileChange:
   /.gitignore:
-    newFile: !uuid '5d947ca8879f8a9072fe485c566204e3c2929e80'
-    oldFile: null
+    newFile: null
+    oldFile: !uuid '5d947ca8879f8a9072fe485c566204e3c2929e80'
   /LICENSE:
-    newFile: !uuid '9e32cdef1625daed25cf365c865f01050877cff3'
+    newFile: null
+    oldFile: !uuid '9e32cdef1625daed25cf365c865f01050877cff3'
+  /css:
+    newFile: !uuid 'd85c827466e05f8a15d90629d6027a8f1e379b3f'
     oldFile: null
-gitCommitId: !uuid '9a7dc592b6a32a2b161a82cf19202c63403b7f1e'
+  /css/main.min.css:
+    newFile: !uuid '8f44dc13c31a95d181c9612666fb15b509d010c0'
+    oldFile: null
+  /css/main.scss:
+    newFile: !uuid 'ce068ee32cd225ae1fb5227aa972508aa0ccd0df'
+    oldFile: null
+  /css/swiper.min.css:
+    newFile: !uuid '7f95460f883bf3426663d4358a5e1ca954e1f9ea'
+    oldFile: null
+  /img:
+    newFile: !uuid '3bdf8436b2fb2a7deceaab5cf87105c14113f0f3'
+    oldFile: null
+  /img/O1CN01qOI6vB1zaqrBKbyFr_!!6000000006731-73-tps-64-64.ico:
+    newFile: !uuid 'b9e99028dc500c79e74de68d65d056d968dde431'
+    oldFile: null
+  /index.html:
+    newFile: !uuid '4f59db646d60d38569644ef75a8f08765f869796'
+    oldFile: null
+  /js:
+    newFile: !uuid 'cb111c303bed08f58ca1c8420d4eae9ad22a54a6'
+    oldFile: null
+  /js/jquery3.7.1.min.js:
+    newFile: !uuid 'c1f3c2a2d6f191ba6ffe9edae7cf4c59f4893c24'
+    oldFile: null
+  /js/main.js:
+    newFile: !uuid 'f9a4074424a2317c643cd548df7a1855cd0adf98'
+    oldFile: null
+  /js/swiper.js:
+    newFile: !uuid 'f3377eff83baf6575765752a1d133bc04889aa0e'
+    oldFile: null
+gitCommitId: !uuid 'a6b9105b2a40aa84c5daad3fa200b4cb69406cb2'
 renames: {
   }
-revisionId: 1
+revisionId: 2
