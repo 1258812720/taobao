@@ -2,6 +2,25 @@ $(document).ready(function () {
     // start
     "use strict";
 
+    /**
+     * 
+     * dev
+     * 
+     */
+    function dev() {
+        $("#opacity").on("input", function () {
+            let v = $(this).val() / 100;
+            $(".cankao").css({
+                opacity: v
+            })
+        });
+        $("#visible").on("click", function () {
+            $(".cankao").toggle()
+        });
+    }
+    dev()
+
+
     // header component
     $.fn.menu = function (option, data) {
         let _this = $(this).eq(0);
@@ -51,8 +70,33 @@ $(document).ready(function () {
     }
     let __a = "全球 中国大陆 中国香港 中国台湾 中国澳门 韩国 马来西亚 澳大利亚 新加坡 新西兰 加拿大 日本 越南 泰国 菲律宾 柬埔寨".split(" ");
     const head = {
-        world: __a
+        world: __a,
     }
+    const data = {
+        brand: [{
+            text: "天猫",
+            color: "#FF0036"
+        }, {
+            text: "聚划算",
+            color: "#FF0036"
+        }, {
+            text: "天猫超市",
+            color: "#33c900"
+        }, {
+            text: "司法拍卖",
+            color: null
+        }, {
+            text: "飞猪旅行",
+            color: null
+        }, {
+            text: "淘宝直播",
+            color: null
+        }, {
+            text: "春季采购节",
+            color: null
+        }]
+    }
+
     $("#menu-world").menu({
         height: "288px",
         innerWidth: "242px",
@@ -68,14 +112,35 @@ $(document).ready(function () {
     new SimSwiper("#tb-slider", {
         lazy: {
             prop: "orc"
-        },pagination: {
+        }, pagination: {
             el: ".pagination",
             click: true
         },
-        loop:true,
-        button:{
-            next:"#tb-slide-next",
-            prev:"#tb-slide-prev"
+        loop: true,
+        button: {
+            next: "#tb-slide-next",
+            prev: "#tb-slide-prev"
         }
-    })
+    });
+    class taobao {
+        constructor() {
+            this.render_brand();
+        }
+        render_brand() {
+            let root = $(".tb-pinpai");
+            const vm = document.createDocumentFragment();
+            let max = data.brand.length;
+            $.each(data.brand, (i, b) => {
+                let a = $(`<a class="link-pinpai clear" href="javascript:void(0)" style="color:${b.color || 'black'}"> ${b.text} </a>`);
+                if (i > 0 && i < max) {
+                    let c = $(`<a class="pip clear">  </a>`);
+                    vm.appendChild(c[0]);
+                }
+                vm.appendChild(a[0]);
+            });
+            root.append(vm);
+        }
+    }
+    new taobao();
+
 });
