@@ -2,46 +2,34 @@
 branches: {
   }
 fileChange:
-  /.gitignore:
-    newFile: null
-    oldFile: !uuid '5d947ca8879f8a9072fe485c566204e3c2929e80'
-  /LICENSE:
-    newFile: null
-    oldFile: !uuid '9e32cdef1625daed25cf365c865f01050877cff3'
   /css:
-    newFile: !uuid 'd85c827466e05f8a15d90629d6027a8f1e379b3f'
-    oldFile: null
+    newFile: !uuid '5648cf703a91a426695c7ed6c27456bfef9d569f'
+    oldFile: !uuid 'd85c827466e05f8a15d90629d6027a8f1e379b3f'
   /css/main.min.css:
-    newFile: !uuid '8f44dc13c31a95d181c9612666fb15b509d010c0'
-    oldFile: null
+    newFile: !uuid '4cd69e8c6a80931c03edc3a657d7cb6e8d1e4ab4'
+    oldFile: !uuid '8f44dc13c31a95d181c9612666fb15b509d010c0'
   /css/main.scss:
-    newFile: !uuid 'ce068ee32cd225ae1fb5227aa972508aa0ccd0df'
-    oldFile: null
-  /css/swiper.min.css:
-    newFile: !uuid '7f95460f883bf3426663d4358a5e1ca954e1f9ea'
-    oldFile: null
+    newFile: !uuid '6eb96095cd80f2a776e8f34a5f4b789ad8ce9450'
+    oldFile: !uuid 'ce068ee32cd225ae1fb5227aa972508aa0ccd0df'
   /img:
-    newFile: !uuid '3bdf8436b2fb2a7deceaab5cf87105c14113f0f3'
+    newFile: !uuid '1ca329b311b56de4a23f27b6b47d1dd739866203'
+    oldFile: !uuid '3bdf8436b2fb2a7deceaab5cf87105c14113f0f3'
+  /img/screenshot-1711468532832.png:
+    newFile: !uuid 'ad5549c9b545bdc106edeef828dcde2b24e2d7e4'
     oldFile: null
-  /img/O1CN01qOI6vB1zaqrBKbyFr_!!6000000006731-73-tps-64-64.ico:
-    newFile: !uuid 'b9e99028dc500c79e74de68d65d056d968dde431'
+  /img/屏幕截图_26-3-2024_234940_www.taobao.com.jpeg:
+    newFile: !uuid 'd25d8195fdc46b4f85a470795593408d1ebaa392'
     oldFile: null
   /index.html:
-    newFile: !uuid '4f59db646d60d38569644ef75a8f08765f869796'
-    oldFile: null
+    newFile: !uuid '6a9d1ac52b206785b572735dda590f9ca14047f0'
+    oldFile: !uuid '4f59db646d60d38569644ef75a8f08765f869796'
   /js:
-    newFile: !uuid 'cb111c303bed08f58ca1c8420d4eae9ad22a54a6'
-    oldFile: null
-  /js/jquery3.7.1.min.js:
-    newFile: !uuid 'c1f3c2a2d6f191ba6ffe9edae7cf4c59f4893c24'
-    oldFile: null
+    newFile: !uuid 'bf785df201886a130f3093c7816c5331ac5ee770'
+    oldFile: !uuid 'cb111c303bed08f58ca1c8420d4eae9ad22a54a6'
   /js/main.js:
-    newFile: !uuid 'f9a4074424a2317c643cd548df7a1855cd0adf98'
-    oldFile: null
-  /js/swiper.js:
-    newFile: !uuid 'f3377eff83baf6575765752a1d133bc04889aa0e'
-    oldFile: null
-gitCommitId: !uuid 'a6b9105b2a40aa84c5daad3fa200b4cb69406cb2'
+    newFile: !uuid 'a9172edd3abdbe5e4993a37d1d5672624f1d5bba'
+    oldFile: !uuid 'f9a4074424a2317c643cd548df7a1855cd0adf98'
+gitCommitId: !uuid '9191183feb4acfae9335feb1b48da41ff809b951'
 renames: {
   }
-revisionId: 2
+revisionId: 3
