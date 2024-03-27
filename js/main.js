@@ -107,26 +107,57 @@ $(document).ready(function () {
             {
                 icon: "",
                 contents: ["美妆", "饰品", "洗护"]
-            },{
-                icon:"",
-                contents:["男装","运动","百货"]
-            },{
-                icon:"",
-                contents:["手机","数码","企业礼品"]
-            },{
-                icon:"",
-                contents:["家装","电器","车品"]
-            },{
-                icon:"",
-                contents:["食品","生鲜","母婴"]
-            },{
-                icon:"",
-                contents:["医药","保健","进口"]
-            },{
-                icon:"",
-                contents:["工业品","商办家具","定制"]
+            }, {
+                icon: "",
+                contents: ["男装", "运动", "百货"]
+            }, {
+                icon: "",
+                contents: ["手机", "数码", "企业礼品"]
+            }, {
+                icon: "",
+                contents: ["家装", "电器", "车品"]
+            }, {
+                icon: "",
+                contents: ["食品", "生鲜", "母婴"]
+            }, {
+                icon: "",
+                contents: ["医药", "保健", "进口"]
+            }, {
+                icon: "",
+                contents: ["工业品", "商办家具", "定制"]
             }
-        ]
+        ],
+        search: {
+            hot_word: "背带裤",
+            push: "鼠标垫 男装 潮流T恤 时尚女鞋 短裤 半身裙 男士外套 墙纸 行车记录仪 新款男鞋 耳机 时尚女包 沙发".split(" ")
+        },
+        user: {
+            cart: [{
+                text: 0,
+                name: "购物车"
+            }, {
+                text: 10,
+                name: "待收货"
+            }, {
+                text: 1,
+                name: "待发货"
+            }, {
+                text: 3,
+                name: "待付款"
+            }, {
+                text: 2,
+                name: "待评价"
+            }],
+            buy_list: [{
+                img: "https://gw.alicdn.com/bao/uploaded/i4/645804463/O1CN01WXa3jD1iq6YIOYcxc_!!0-item_pic.jpg_300x300q90.jpg",
+                status: "已签收",
+                logistics: "物流信息"
+            }, {
+                img: "https://gw.alicdn.com/bao/uploaded/i4/645804463/O1CN01WXa3jD1iq6YIOYcxc_!!0-item_pic.jpg_300x300q90.jpg",
+                status: "派送中",
+                logistics: "您的包裹已送货上门，放至家门口。服务由菜鸟驿站【上海市诸光路1355西郊家园店】提供。如有问题可致电13158369520。期待再次为您服务。"
+            }],
+        }
     }
 
     $("#menu-world").menu({
@@ -155,6 +186,10 @@ $(document).ready(function () {
         }
     });
     class taobao {
+
+        _vm() {
+            return document.createDocumentFragment();
+        }
         constructor() {
             /**
              * @author cc
@@ -171,6 +206,9 @@ $(document).ready(function () {
             }
             this.render_brand();
             this.render_types();
+            this.render_search();
+            this.render_cart();
+            this.render_buy();
         }
         render_brand() {
             let root = $(".tb-pinpai");
@@ -188,7 +226,7 @@ $(document).ready(function () {
         }
         render_types() {
             let root = $(".tb-head-left-list");
-            const vm = document.createDocumentFragment();
+            const vm = this._vm();
             $.each(data.classification, (i, b) => {
                 let li = $(`<li class="link-classification" > <i class="i-font tb-font service-arrow">${b.icon}</i> </li>`);
                 $.each(b.contents, (_c, d) => {
@@ -203,7 +241,54 @@ $(document).ready(function () {
             });
             root.append(vm);
         }
+        render_search() {
+            let root = $(".search-hot");
+            const vm = this._vm();
+            $.each(data.search.push, (a, b) => {
+                let link = $(`<a title="${b}" class="search-link">${b}</a>`)[0];
+                vm.appendChild(link);
+            });
+            root.append(vm);
+        }
+        render_cart() {
+            let root = $(".user-cart");
+            const vm = this._vm();
+            $.each(data.user.cart, (a, b) => {
+                let el = $(`
+                    <div class="cart-item">
+                        <span class="cart-num"> ${b.text} </span>
+                        <span> ${b.name} </span>
+                    </div>
+                `);
+                vm.appendChild(el[0]);
+            });
+            root.append(vm);
+        }
+        render_buy() {
+            let root = $("#user-buy-info> .swiper-wrapper");
+            const vm = this._vm();
+            $.each(data.user.buy_list, (a, b) => {
+                let card = $(`<div class="swiper-items">
+                                <a href="#1" class="buy-info" target="_blank" rel="noopener noreferrer">
+                                    <img class="img_buy" ikun="${b.img}" alt=""/>
+                                    <div class="buy-more">
+                                    <span class="buy-status"> ${b.status} </span>
+                                    <span class="buy-status-logistics"> ${b.logistics} </span>
+                                    </div>
+                                </a>
+                            </div>`);
+                vm.appendChild(card[0]);
+            });
+            root.append(vm);
+            // init swiper
+            new SimSwiper("#user-buy-info", {
+                loop: true,
+                autoplay: true,
+                lazy: {
+                    prop: "ikun"
+                }
+            })
+        }
     }
     new taobao();
-
 });
