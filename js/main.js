@@ -15,10 +15,10 @@ $(document).ready(function () {
             })
         });
         $("#visible").on("click", function () {
-            $(".cankao").toggle()
+            $(".cankao").toggle();
         });
     }
-    dev()
+    dev();
 
 
     // header component
@@ -94,7 +94,39 @@ $(document).ready(function () {
         }, {
             text: "春季采购节",
             color: null
-        }]
+        }],
+        classification: [
+            {
+                icon: "",
+                contents: ["女装", "内衣", "奢侈"]
+            },
+            {
+                icon: "",
+                contents: ["女鞋", "男鞋", "箱包"]
+            },
+            {
+                icon: "",
+                contents: ["美妆", "饰品", "洗护"]
+            },{
+                icon:"",
+                contents:["男装","运动","百货"]
+            },{
+                icon:"",
+                contents:["手机","数码","企业礼品"]
+            },{
+                icon:"",
+                contents:["家装","电器","车品"]
+            },{
+                icon:"",
+                contents:["食品","生鲜","母婴"]
+            },{
+                icon:"",
+                contents:["医药","保健","进口"]
+            },{
+                icon:"",
+                contents:["工业品","商办家具","定制"]
+            }
+        ]
     }
 
     $("#menu-world").menu({
@@ -124,7 +156,21 @@ $(document).ready(function () {
     });
     class taobao {
         constructor() {
+            /**
+             * @author cc
+             * @param {*} rootElement 根元素
+             * @param {*} data 数据
+             * @param {*} call 回调
+             */
+            this.h = function (rootElement, _data, call) {
+                if (data && call && typeof call === 'function') {
+                    $.each(data, (a, b) => {
+                        call(a, b);
+                    });
+                }
+            }
             this.render_brand();
+            this.render_types();
         }
         render_brand() {
             let root = $(".tb-pinpai");
@@ -137,6 +183,23 @@ $(document).ready(function () {
                     vm.appendChild(c[0]);
                 }
                 vm.appendChild(a[0]);
+            });
+            root.append(vm);
+        }
+        render_types() {
+            let root = $(".tb-head-left-list");
+            const vm = document.createDocumentFragment();
+            $.each(data.classification, (i, b) => {
+                let li = $(`<li class="link-classification" > <i class="i-font tb-font service-arrow">${b.icon}</i> </li>`);
+                $.each(b.contents, (_c, d) => {
+                    let a = $(`<a class="link-classification-a">${d}</a>`);
+                    if (_c > 0 && _c <= d.length) {
+                        let c = $(`<a class="pip"> / </a>`);
+                        li.append(c);
+                    }
+                    li.append(a);
+                });
+                vm.appendChild(li[0]);
             });
             root.append(vm);
         }

@@ -1,14 +1,23 @@
+@import url("font.css");
 $color01: #eee;
 $bg01: #FFFFFF;
 $bg02: #F7F9FA;
-
+$fontColor: #ff5000;
+$fontColor01: #414141;
 .cankao {
     position: absolute;
     top: 0;
     opacity: .5;
     z-index: 2;
+
     user-select: none;
     pointer-events: none;
+}
+
+@media screen and (max-width:1920px) {
+    .cankao {
+        left: -317px;
+    }
 }
 
 .console {
@@ -27,6 +36,15 @@ body {
     .clear::after {
         content: "";
         display: table;
+    }
+
+    @mixin none_border {
+        outline: none;
+        border: none;
+    }
+
+    @mixin solid($w: 1px, $color: $fontColor) {
+        border: $w solid $color;
     }
 
     @mixin radius($r: 18px) {
@@ -67,6 +85,9 @@ body {
 
         //  头部信息
         .tb-header {
+            position: relative;
+            z-index: 999;
+
             .tb-head-button {
                 border: none;
                 display: block;
@@ -128,8 +149,7 @@ body {
                         background-color: white;
                         margin: 0;
                         position: relative;
-                        padding: 8px 0 8px 0;
-                        box-sizing: border-box;
+                        @include padding0(8px, 8px, 0, 0);
 
                         li {
                             box-sizing: border-box;
@@ -158,11 +178,66 @@ body {
             @include padding0(16px, 16px, 54px, 55px);
             margin: 0 auto;
 
+            .mid-search {
+                width: 734px;
+                float: left;
+                height: 100%;
+                margin-left: 12px;
+
+                .tb-input {
+                    width: 100%;
+                    margin-top: 22px;
+                    height: 38px;
+                    @include radius(20px);
+                    @include solid(2px);
+                    background-color: rgb(255, 255, 255);
+
+                    #search {
+                        @include none_border;
+                        height: 80%;
+                        color:$fontColor01;
+                        box-sizing: border-box;
+                        width: 79%;
+                    }
+
+                    .pip {
+                        color: $color01;
+                    }
+
+                    .store-select {
+                        font-size: 15px;
+                        margin-left: 13px;
+                        width: 50px;
+                        height: 34px;
+                        @include none_border;
+                        overflow: hidden;
+                        border-radius: 20px 0 0 0;
+
+                        option {
+                            @include none_border;
+                        }
+                    }
+
+                    #btn-search {
+                        cursor: pointer;
+                        @include none_border;
+                        width: 72px;
+                        @include radius(20px);
+                        height: 34px;
+                        color: white;
+                        font-size: 17px;
+                        margin-top: ((40px - 34px) / 2.5);
+                        background-image: linear-gradient(145deg,#ff9000,#ff5000 77%);
+                    }
+                }
+            }
+
             .tb-logo {
+                float: left;
                 width: 190px;
                 height: 59px;
                 margin-top: 18px;
-                
+
                 img {
                     height: 100%;
                 }
@@ -170,6 +245,11 @@ body {
         }
 
         .tb-main-body {
+            .i-font {
+                height: 16px;
+                display: block;
+                width: 16px;
+            }
 
             @include radius;
             height: 1200px;
@@ -185,6 +265,55 @@ body {
                 background-color: $bg02;
                 @include radius;
                 float: left;
+                @include padding0(20px, 20px, 18px, 0px);
+
+                .tb-head-left-title {
+                    font-size: 18px;
+                    margin-left: 2px;
+                    font-family: "宋体";
+                    font-weight: 600;
+                }
+
+                .tb-head-left-list {
+                    padding: 0;
+                    margin-top: 16px;
+
+                    .link-classification {
+                        margin-bottom: 18px;
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        list-style: none;
+
+                        &:hover {
+                            color: $fontColor;
+                        }
+
+                        height: 20px;
+
+                        .link-classification-a {
+                            font-size: 13.7px;
+                            font-family: "宋体";
+                        }
+
+                        .pip {
+                            margin-left: 8px;
+                            margin-right: 8px;
+                        }
+
+                        &:hover .i-font {
+                            color: $fontColor;
+                        }
+
+                        .i-font {
+                            font-size: 16px;
+                            color: rgb(88, 88, 88);
+                            margin-right: 15px;
+                            margin-left: 2px;
+                        }
+                    }
+                }
+
             }
 
             .tb-head-right {
@@ -201,21 +330,21 @@ body {
                     background-color: $bg02;
                     @include padding0(11px, 10px, 14px, 12px);
                     margin-bottom: 10px;
-                    .pip{
+
+                    .pip {
                         display: block;
                         width: 2px;
                         height: 80%;
                         float: left;
                         position: relative;
-                        top:17%;
+                        top: 17%;
                         background-color: #e0e0e0;
                     }
-                    
+
                     .link-pinpai {
-                        // font-family: “;
                         font-size: 16px;
                         display: block;
-                        @include padding0(0, 0, 23px,23px);
+                        @include padding0(0, 0, 23px, 23px);
                         float: left;
                         text-align: center;
                         text-decoration: none;
