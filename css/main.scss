@@ -5,6 +5,7 @@ $bg02: #F7F9FA;
 $fontColor: #ff5000;
 $fontColor01: #414141;
 $fontColor02: #868686;
+
 .cankao {
     position: absolute;
     top: 0;
@@ -449,7 +450,8 @@ body {
                         }
                     }
                 }
-                #user-buy-info{
+
+                #user-buy-info {
                     margin-top: 7px;
                     margin-left: 6px;
                     width: 262px;
@@ -457,24 +459,27 @@ body {
                     @include radius(6px);
                     background-color: $bg02;
                     height: 48px;
-                    .swiper-items{
-                        a.buy-info{
+
+                    .swiper-items {
+                        a.buy-info {
                             text-decoration: none;
                             color: $fontColor01;
                             display: flex;
                             align-items: center;
                         }
-                        .buy-more{
+
+                        .buy-more {
                             display: flex;
                             flex-direction: column;
                             margin-left: 10px;
-                            span{
+
+                            span {
                                 text-align: left;
                             }
-                            span.buy-status-logistics{
+
+                            span.buy-status-logistics {
                                 color: $fontColor02;
                                 font-size: 12px;
-                                writing-mode: sideways-lr;
                                 max-width: 204px;
                                 height: 14px;
                                 overflow: hidden;
@@ -482,13 +487,15 @@ body {
                                 text-overflow: ellipsis;
                             }
                         }
-                        .img_buy{
+
+                        .img_buy {
                             width: 48px;
                             height: 48px;
                             @include radius(6px);
                         }
                     }
                 }
+
                 .user-account {
                     width: 100%;
                     @include padding0(2px, 2px, 8px, 8px);
