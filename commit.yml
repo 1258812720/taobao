@@ -3,36 +3,33 @@ branches: {
   }
 fileChange:
   /css:
-    newFile: !uuid '69d455adcec99d424bd2f8a3fe5b83fa95b37a57'
-    oldFile: !uuid '5648cf703a91a426695c7ed6c27456bfef9d569f'
-  /css/font.css:
-    newFile: !uuid 'd0190aacde5b48821037c5644adefd1b0b7df04b'
-    oldFile: null
+    newFile: !uuid 'bee970b0d55e5bf4da2737f51338bbc64088d83e'
+    oldFile: !uuid '69d455adcec99d424bd2f8a3fe5b83fa95b37a57'
   /css/main.min.css:
-    newFile: !uuid 'f2294b6f284d05fac7d061e63d004c97edfb4a64'
-    oldFile: !uuid '4cd69e8c6a80931c03edc3a657d7cb6e8d1e4ab4'
+    newFile: !uuid '63c145b3ae6560aed487ff798bd34411adff446c'
+    oldFile: !uuid 'f2294b6f284d05fac7d061e63d004c97edfb4a64'
   /css/main.scss:
-    newFile: !uuid '145a26e677b441e908ff1ec66fdf5d5c40634c3b'
-    oldFile: !uuid '6eb96095cd80f2a776e8f34a5f4b789ad8ce9450'
-  /font:
-    newFile: !uuid 'd942b27859138a7f909a7ef00b90bc4ffbc94136'
-    oldFile: null
-  /font/tb-font.woff:
-    newFile: !uuid '851c1d32217fedf1f3d541df58431de9d1b87cfc'
-    oldFile: null
-  /font/tb-font.woff2:
-    newFile: !uuid '7f71440339b3ff51f1d130a458fb5edf6d833f46'
+    newFile: !uuid 'b15b4f47333167175a1a4bc195a8fdaa7374d15b'
+    oldFile: !uuid '145a26e677b441e908ff1ec66fdf5d5c40634c3b'
+  /css/swiper.min.css:
+    newFile: !uuid '6ad5889c9b31cb8c19757d4ae3399134c50deaa9'
+    oldFile: !uuid '7f95460f883bf3426663d4358a5e1ca954e1f9ea'
+  /img:
+    newFile: !uuid 'acb97b44a4892f3ff9989eef22e3dd7b9b70e623'
+    oldFile: !uuid '1ca329b311b56de4a23f27b6b47d1dd739866203'
+  /img/getAvatar.jpg:
+    newFile: !uuid '1ecb7d08ddab86ad55c949c370e42104299dea4d'
     oldFile: null
   /index.html:
-    newFile: !uuid '98e82ef3ae832944727931fdad73a0724692bae8'
-    oldFile: !uuid '6a9d1ac52b206785b572735dda590f9ca14047f0'
+    newFile: !uuid 'e7680635f6cf433d8ff99409b7339610b2a5a40a'
+    oldFile: !uuid '98e82ef3ae832944727931fdad73a0724692bae8'
   /js:
-    newFile: !uuid '622b62377e8626be5328fc9940902d574108ff84'
-    oldFile: !uuid 'bf785df201886a130f3093c7816c5331ac5ee770'
+    newFile: !uuid 'f958185d7b5d5506902492498468450a1ac99ab4'
+    oldFile: !uuid '622b62377e8626be5328fc9940902d574108ff84'
   /js/main.js:
-    newFile: !uuid 'a7fec2ffa67940f168e12c84d67978e4cfa252ac'
-    oldFile: !uuid 'a9172edd3abdbe5e4993a37d1d5672624f1d5bba'
-gitCommitId: !uuid 'e71f52688bdc73c4f93292a746e1a0219251efac'
+    newFile: !uuid '13f2a9734d217ced1040a000145dd9095ae68960'
+    oldFile: !uuid 'a7fec2ffa67940f168e12c84d67978e4cfa252ac'
+gitCommitId: !uuid 'a77513c70ec305fb192fe5bc2cd4818611f6b06d'
 renames: {
   }
-revisionId: 4
+revisionId: 5
