@@ -83,6 +83,9 @@ $(document).ready(function () {
         $(window).on("resize", () => {
             win_height = window.innerHeight;
         });
+        function isFun(f) {
+            return typeof f === 'function';
+        }
         function isVisible(a) {
             return a <= win_height;
         }
@@ -91,8 +94,11 @@ $(document).ready(function () {
                 index += 1;
                 if (index === config.count) {
                     node.off("scroll");
+                    if (isFun(config.end)) {
+                        config.end(true);
+                    }
                 }
-                if (typeof config.accept === 'function') {
+                if (isFun(config.accept)) {
                     config.accept(index, target);
                 }
             }
@@ -105,6 +111,11 @@ $(document).ready(function () {
                     let doc_height = $(document).height();
                     isBottom(scroll_height + win_height, doc_height);
                 }
+            }
+
+            __fn();
+            if (isFun(config.init)) {
+                config.init(true);
             }
         } else {
             __fn = function (e) {
@@ -387,9 +398,15 @@ $(document).ready(function () {
                 target: "#more-item-list",
                 count: 10,
                 accept(e = 0, v) {
-                    for (let i = 0; i < e * 6; i++) {
-                        v.append(h('https://gw.alicdn.com/bao/uploaded/i4/3937219703/O1CN01voeHXK2LY1x5o7aL5_!!3937219703-0-C2M.jpg_300x300q90.jpg', 1, 'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png', "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟", 88))
+                    for (let i = 0; i < 6; i++) {
+                        v.append(h('./img/oEGAJInGeAsAy5RiAxe6ACTy2ZgIQCAbglPaCD.png', 1, 'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png', "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟", 88))
                     }
+                },
+                init() {
+                    $(".bottom-tips").addClass("loading");
+                },
+                end() {
+                    $(".bottom-tips").removeClass("loading").text("到底了~~");
                 }
             });
         }
