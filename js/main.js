@@ -7,18 +7,6 @@ $(document).ready(function () {
      * dev
      * 
      */
-    function dev() {
-        $("#opacity").on("input", function () {
-            let v = $(this).val() / 100;
-            $(".cankao").css({
-                opacity: v
-            })
-        });
-        $("#visible").on("click", function () {
-            $(".cankao").toggle();
-        });
-    }
-    dev();
 
 
     // 选择菜单组件
@@ -104,7 +92,7 @@ $(document).ready(function () {
             }
         }
         if (node[0] === window) {
-            __fn = function (e) {
+            __fn = function () {
                 let top = target.offset().top;
                 if (isVisible(top)) {
                     let scroll_height = document.documentElement.scrollTop;
@@ -112,7 +100,6 @@ $(document).ready(function () {
                     isBottom(scroll_height + win_height, doc_height);
                 }
             }
-
             __fn();
             if (isFun(config.init)) {
                 config.init(true);
@@ -263,6 +250,18 @@ $(document).ready(function () {
             this.render_buy();
             this.render_role();
             this.load_list();
+            let btn = $(".tb-toolkit-button:last-child")
+            $(window).on("scroll", function (e) {
+                let t = document.documentElement.scrollTop;
+                btn.css({
+                    display: (t >= 406) ? "block" : "none"
+                })
+            });
+            btn.click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                })
+            })
         }
         render_brand() {
             new SimSwiper("#tb-slider", {

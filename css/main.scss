@@ -86,7 +86,37 @@ body {
     color: #3C3C3C;
     overflow-y: auto;
     overflow-x: hidden;
+    .tb-toolkit{
+        position: fixed;
+        width: 60px;
+        min-height: 374px;
+        background-color: white;
+        bottom: 50%;
+        right: 0;
+        z-index: 999;
+        transform: translateY(50%);
+        border-radius: 18px 0 0 18px;
+        .tb-toolkit-button{
+            cursor: pointer;
+            width: 60px;
+            font-size: 12px;
+            margin-top: 36px;
+            text-align: center;
+            height: 56px;
+            &:last-child{
+                display: none;
+            }
+            img{
+                width: 24px;
+                height: 22px;
+            }
+            span{
+                display: block;
+                width: 100%;
 
+            }
+        }
+    }
     .taobao-app {
         position: relative;
         width: 100%;
