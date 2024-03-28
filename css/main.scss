@@ -11,7 +11,7 @@ $fontColor02: #868686;
     top: 0;
     opacity: .5;
     z-index: 2;
-
+    display: none;
     user-select: none;
     pointer-events: none;
 }
@@ -33,6 +33,18 @@ $fontColor02: #868686;
 }
 
 body {
+    a.common-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    a {
+        &:hover {
+            color: $fontColor;
+        }
+    }
 
     .clear::before,
     .clear::after {
@@ -102,12 +114,12 @@ body {
 
                 &:hover {
                     background-color: white;
-                    @include border();
+                    @include border;
                 }
 
                 &.active {
                     background-color: rgb(255, 255, 255);
-                    @include border();
+                    @include border;
                     border-bottom-color: transparent;
                 }
 
@@ -266,7 +278,7 @@ body {
             }
 
             @include radius;
-            height: 1200px;
+            height: auto;
             max-width: 1190px;
             margin: 1px auto;
             @include padding0(24px, 0px, 24px, 24px);
@@ -425,6 +437,66 @@ body {
                 margin-left: 24px;
                 float: left;
 
+                #tb-role-list {
+                    @include padding0(0, 0, 6px, 6px);
+                    margin-top: 40px;
+                    font-size: 12px;
+                    height: 18px;
+                    @include none_border;
+
+                    .tb-role {
+                        writing-mode: nowrap;
+                        text-align: left;
+
+                        .tb-role-type {
+                            background-color: #ffefef;
+                            color: #FF5000;
+                            display: inline;
+                            width: 50px;
+                            height: 18px;
+                        }
+                    }
+
+                }
+
+                .mt-tao {
+                    width: 100%;
+                    height: 48px;
+                    margin-top: 26px;
+
+                    .mt-tao-item {
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        a {
+                            font-size: 12px;
+                            text-align: center;
+                            color: $fontColor01;
+                            text-decoration: none;
+
+                            &:hover {
+                                color: #ff5000;
+                            }
+
+                            span {
+                                width: 100%;
+                                display: block;
+                                text-align: center;
+                                font-size: 26px;
+                            }
+
+                            p {
+                                margin-top: 8px;
+                            }
+                        }
+
+                        width: 48px;
+                        margin-left: 6px;
+                        margin-right: 12px;
+                    }
+                }
+
                 .user-cart {
                     margin-top: 12px;
                     width: 100%;
@@ -477,10 +549,14 @@ body {
                                 text-align: left;
                             }
 
+                            span.buy-status {
+                                font-size: 13px;
+                            }
+
                             span.buy-status-logistics {
                                 color: $fontColor02;
                                 font-size: 12px;
-                                max-width: 204px;
+                                width: 204px;
                                 height: 14px;
                                 overflow: hidden;
                                 white-space: nowrap;
@@ -532,10 +608,93 @@ body {
                         }
                     }
                 }
+
+            }
+
+            .guess-item-container {
+                width: 100%;
+                height: auto;
+                min-height: 60px;
+
             }
         }
 
-        // 主题 轮播部分
+        .body-first {
+            overflow: hidden;
+        }
+
+        // 下面部分
+        .guess-item-container {
+            position: relative;
+
+            .guess-title {
+                padding-left: 2px;
+                margin-top: 20px;
+                font-size: 24px;
+                color: black;
+                line-height: 24px;
+
+                img {
+                    width: 64px;
+                    height: 20px;
+                    vertical-align: middle;
+                }
+            }
+
+            #more-item-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 30px;
+
+                .more-item {
+                    @include padding0(0, 0, 4px, 0);
+                    overflow: hidden;
+
+                    .more-item-detail {
+                        float: right;
+                        height: 100%;
+                        width: 202px;
+                        padding-top: 6px;
+                        box-sizing: border-box;
+                        .more-item-name {
+                            
+                            img {
+                                max-height: 16px;
+                                object-fit: contain;
+                                vertical-align: middle;
+                            }
+                            text-align: left;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color:$fontColor01;
+                        }
+                    }
+
+                    .more-item-image {
+                        width: 150px;
+                        height: 150px;
+                        @include radius(12px);
+                        overflow: hidden;
+                        float: left;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    position: relative;
+                    width: 372px;
+                    height: 174px;
+                    overflow: hidden;
+                    @include border;
+                    margin-bottom: 18px;
+                }
+            }
+
+        }
 
     }
 }

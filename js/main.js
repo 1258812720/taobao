@@ -21,7 +21,7 @@ $(document).ready(function () {
     dev();
 
 
-    // header component
+    // 选择菜单组件
     $.fn.menu = function (option, data) {
         let _this = $(this).eq(0);
         let open = false;
@@ -68,6 +68,54 @@ $(document).ready(function () {
         }
 
     }
+    // 页面滚动组件 监听元素显示在屏幕开始执行
+
+    $.fn.scrollView = function (config) {
+        let node = $(this);
+        if (!config || !config.target) {
+            console.error("配置null");
+            return;
+        }
+        let target = $(config.target);
+        let index = 0;
+        let __fn = undefined;
+        let win_height = window.innerHeight;
+        $(window).on("resize", () => {
+            win_height = window.innerHeight;
+        });
+        function isVisible(a) {
+            return a <= win_height;
+        }
+        function isBottom(a, b) {
+            if (a >= b) {
+                index += 1;
+                if (index === config.count) {
+                    node.off("scroll");
+                }
+                if (typeof config.accept === 'function') {
+                    config.accept(index, target);
+                }
+            }
+        }
+        if (node[0] === window) {
+            __fn = function (e) {
+                let top = target.offset().top;
+                if (isVisible(top)) {
+                    let scroll_height = document.documentElement.scrollTop;
+                    let doc_height = $(document).height();
+                    isBottom(scroll_height + win_height, doc_height);
+                }
+            }
+        } else {
+            __fn = function (e) {
+
+            }
+        }
+        if (config.count > 0) {
+            node.on("scroll", __fn);
+        }
+    }
+
     let __a = "全球 中国大陆 中国香港 中国台湾 中国澳门 韩国 马来西亚 澳大利亚 新加坡 新西兰 加拿大 日本 越南 泰国 菲律宾 柬埔寨".split(" ");
     const head = {
         world: __a,
@@ -157,6 +205,12 @@ $(document).ready(function () {
                 status: "派送中",
                 logistics: "您的包裹已送货上门，放至家门口。服务由菜鸟驿站【上海市诸光路1355西郊家园店】提供。如有问题可致电13158369520。期待再次为您服务。"
             }],
+            roles: [
+                {
+                    text: "全民制作人",
+                    type: "【规则】"
+                }
+            ]
         }
     }
 
@@ -172,21 +226,8 @@ $(document).ready(function () {
         trigger: "click",
         text: "请登录"
     }, null);
-    new SimSwiper("#tb-slider", {
-        lazy: {
-            prop: "orc"
-        }, pagination: {
-            el: ".pagination",
-            click: true
-        },
-        loop: true,
-        button: {
-            next: "#tb-slide-next",
-            prev: "#tb-slide-prev"
-        }
-    });
-    class taobao {
 
+    class taobao {
         _vm() {
             return document.createDocumentFragment();
         }
@@ -209,8 +250,24 @@ $(document).ready(function () {
             this.render_search();
             this.render_cart();
             this.render_buy();
+            this.render_role();
+            this.load_list();
         }
         render_brand() {
+            new SimSwiper("#tb-slider", {
+                lazy: {
+                    prop: "orc"
+                }, pagination: {
+                    el: ".pagination",
+                    click: true
+                },
+                autoplay: 3000,
+                loop: true,
+                button: {
+                    next: "#tb-slide-next",
+                    prev: "#tb-slide-prev"
+                }
+            });
             let root = $(".tb-pinpai");
             const vm = document.createDocumentFragment();
             let max = data.brand.length;
@@ -283,11 +340,58 @@ $(document).ready(function () {
             // init swiper
             new SimSwiper("#user-buy-info", {
                 loop: true,
-                autoplay: true,
+                autoplay: 3000,
                 lazy: {
                     prop: "ikun"
                 }
             })
+        }
+        render_role() {
+            let root = $("#tb-role-list > .swiper-wrapper");
+            const vm = this._vm();
+            $.each(data.user.roles, (i, b) => {
+                vm.appendChild($(`<div class="swiper-items tb-role">
+                    <span class="tb-role-type">${b.type}</span>
+                    ${b.text}
+                </div>`)[0])
+            });
+            root.append(vm);
+            new SimSwiper("#tb-role-list", {
+                loop: true,
+                autoplay: 3000
+            })
+        }
+        load_list() {
+            // 加载更多列表
+            function h(img, id = 0, img_label = undefined, name, price = 0) {
+                return $(`
+                    <div class="more-item" data-id="${id}">
+                        <a class="common-link" href="javascript:void(0)">
+                            <div class="more-item-image clear">
+                                <img src="${img}" alt="none">
+                            </div>
+                            <div class="more-item-detail clear">
+                                <span class="more-item-name"> 
+                                    ${img_label ? `<img src="${img_label}"/>` : ''}
+                                    ${name}
+                                </span>
+                                <span class="more-item-price"> 
+                                    ${price}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                `);
+            }
+            $(window).scrollView({
+                target: "#more-item-list",
+                count: 10,
+                accept(e = 0, v) {
+                    for (let i = 0; i < e * 6; i++) {
+                        v.append(h('https://gw.alicdn.com/bao/uploaded/i4/3937219703/O1CN01voeHXK2LY1x5o7aL5_!!3937219703-0-C2M.jpg_300x300q90.jpg', 1, 'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png', "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟", 88))
+                    }
+                }
+            });
         }
     }
     new taobao();
