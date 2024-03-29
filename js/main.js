@@ -1,7 +1,18 @@
 $(document).ready(function () {
     // start
     "use strict";
+    // 屏幕设置
 
+    (function () {
+        function isMobile() {
+            return (/Android|iPhone|iPad|X11|MacOSX|/i.test(navigator.userAgent.replaceAll(" ","")));
+        }
+        if(isMobile()){
+            $("html,body").css({
+                width:window.innerWidth
+            })
+        }
+    })();
     /**
      * 
      * dev
@@ -61,7 +72,6 @@ $(document).ready(function () {
     $.fn.scrollView = function (config) {
         let node = $(this);
         if (!config || !config.target) {
-            console.error("配置null");
             return;
         }
         let target = $(config.target);
@@ -77,6 +87,11 @@ $(document).ready(function () {
         function isVisible(a) {
             return a <= win_height;
         }
+        function call() {
+            if (isFun(config.accept)) {
+                config.accept(index, target);
+            }
+        }
         function isBottom(a, b) {
             if (a >= b) {
                 index += 1;
@@ -86,11 +101,10 @@ $(document).ready(function () {
                         config.end(true);
                     }
                 }
-                if (isFun(config.accept)) {
-                    config.accept(index, target);
-                }
+                call();
             }
         }
+        call();
         if (node[0] === window) {
             __fn = function () {
                 let top = target.offset().top;
@@ -105,9 +119,6 @@ $(document).ready(function () {
                 config.init(true);
             }
         } else {
-            __fn = function (e) {
-
-            }
         }
         if (config.count > 0) {
             node.on("scroll", __fn);
@@ -373,9 +384,9 @@ $(document).ready(function () {
         }
         load_list() {
             // 加载更多列表
-            function h(img, id = 0, img_label = undefined, name, price = 0) {
+            function h(img, id = 0, img_label = undefined, name, price = 0, index) {
                 return $(`
-                    <div class="more-item" data-id="${id}">
+                    <div class="more-item animated_fade_up" data-id="${id}" style="--delay:${index}00ms">
                         <a class="common-link" href="javascript:void(0)">
                             <div class="more-item-image clear">
                                 <img src="${img}" alt="none">
@@ -398,7 +409,13 @@ $(document).ready(function () {
                 count: 10,
                 accept(e = 0, v) {
                     for (let i = 0; i < 6; i++) {
-                        v.append(h('./img/oEGAJInGeAsAy5RiAxe6ACTy2ZgIQCAbglPaCD.png', 1, 'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png', "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟", 88))
+                        v.append(h(
+                            './img/oEGAJInGeAsAy5RiAxe6ACTy2ZgIQCAbglPaCD.png',
+                            1,
+                            'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png',
+                            "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟",
+                            88,
+                            i))
                     }
                 },
                 init() {

@@ -1,0 +1,34 @@
+html {
+    body {
+        @media screen and (max-width:1192px) {
+            .taobao-app {
+                .tb-main-body {
+                    width: 990px;
+
+                    .tb-lead-left {
+                        display: none;
+                    }
+
+                    .body-first {
+                        .tb-head-right {
+                            float: none;
+                            width: 100%;
+                        }
+
+                        .user-info {
+                            margin-left: 102px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes fade_up {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
