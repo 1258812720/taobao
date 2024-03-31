@@ -96,7 +96,7 @@ $(document).ready(function () {
             if (a >= b) {
                 index += 1;
                 if (index === config.count) {
-                    node.off("scroll");
+                    node.off("scroll",__fn);
                     if (isFun(config.end)) {
                         config.end(true);
                     }
