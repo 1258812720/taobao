@@ -8,6 +8,7 @@ $(document).ready(function () {
             return (/Android|iPhone|iPad|X11|MacOSX|/i.test(navigator.userAgent.replaceAll(" ","")));
         }
         if(isMobile()){
+            return;
             $("html,body").css({
                 width:window.innerWidth
             })
