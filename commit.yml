@@ -2,10 +2,16 @@
 branches: {
   }
 fileChange:
-  /LICENSE:
-    newFile: !uuid '9ffe7d9ee28a74359ff0fab390e25b480d76b3ee'
-    oldFile: null
-gitCommitId: !uuid '282e8d902d87542bd8d50a46bbe02e96c44868c9'
+  /js:
+    newFile: !uuid '9d253540113441011141de2c1bb5b89999a55723'
+    oldFile: !uuid '6648643934617396d64ebd9ef1fa56c126a37810'
+  /js/main.js:
+    newFile: !uuid '5b449f8c945599f50f4a9d269f2fe54327a09e73'
+    oldFile: !uuid 'a8abe3614ffb7306a61e78d4c9ecd925c81ba80b'
+  /js/swiper.js:
+    newFile: !uuid 'daec433d27a64e26ee0bb2ad6013af99861fc5b6'
+    oldFile: !uuid 'f3377eff83baf6575765752a1d133bc04889aa0e'
+gitCommitId: !uuid '9ee5b627f0a8f4d892eed85a54f0d448f8386d0e'
 renames: {
   }
-revisionId: 13
+revisionId: 14
