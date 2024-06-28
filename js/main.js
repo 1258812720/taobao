@@ -5,12 +5,12 @@ $(document).ready(function () {
 
     (function () {
         function isMobile() {
-            return (/Android|iPhone|iPad|X11|MacOSX|/i.test(navigator.userAgent.replaceAll(" ","")));
+            return (/Android|iPhone|iPad|X11|MacOSX|/i.test(navigator.userAgent.replaceAll(" ", "")));
         }
-        if(isMobile()){
+        if (isMobile()) {
             return;
             $("html,body").css({
-                width:window.innerWidth
+                width: window.innerWidth
             })
         }
     })();
@@ -97,7 +97,7 @@ $(document).ready(function () {
             if (a >= b) {
                 index += 1;
                 if (index === config.count) {
-                    node.off("scroll",__fn);
+                    node.off("scroll", __fn);
                     if (isFun(config.end)) {
                         config.end(true);
                     }
@@ -279,8 +279,9 @@ $(document).ready(function () {
             new SimSwiper("#tb-slider", {
                 lazy: {
                     prop: "orc"
-                }, pagination: {
-                    el: ".pagination",
+                },
+                pagination: {
+                    el: ".pagehelper",
                     click: true
                 },
                 autoplay: 3000,
@@ -411,10 +412,10 @@ $(document).ready(function () {
                 accept(e = 0, v) {
                     for (let i = 0; i < 6; i++) {
                         v.append(h(
-                            './img/oEGAJInGeAsAy5RiAxe6ACTy2ZgIQCAbglPaCD.png',
+                            'https://img.alicdn.com/bao/uploaded/i1/646406995/O1CN01jMo0G021XlOOZVXpG_!!646406995.jpg',
                             1,
-                            'https://img.alicdn.com/imgextra/i1/O1CN01nRidmm1UAVxdcYMzF_!!6000000002477-2-tps-104-56.png',
-                            "你干嘛哈哈哎哟你干嘛哈哈哎哟你干嘛哈哈哎哟",
+                            'https://img.alicdn.com/bao/uploaded/i1/646406995/O1CN01jMo0G021XlOOZVXpG_!!646406995.jpg',
+                            "意大利洋酒 阿佩罗开胃利口酒 APEROL SPRITZ 餐前酒 鸡尾酒调酒",
                             88,
                             i))
                     }
